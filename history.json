@@ -1,0 +1,247 @@
+[
+  {
+    "price": 400000,
+    "score": 65,
+    "confidence": 70,
+    "lat": 34.0,
+    "lon": -118.0
+  },
+  {
+    "price": 400000,
+    "score": 65,
+    "confidence": 70,
+    "lat": 31.0,
+    "lon": -118.0
+  },
+  {
+    "price": 400000,
+    "score": 65,
+    "confidence": 70,
+    "lat": 35.0,
+    "lon": -118.0
+  },
+  {
+    "price": 400000,
+    "score": 65,
+    "confidence": 70,
+    "lat": 39.0,
+    "lon": -124.0
+  },
+  {
+    "price": 400000,
+    "score": 65,
+    "confidence": 70,
+    "lat": 39.0,
+    "lon": -100.0
+  },
+  {
+    "price": 400000,
+    "score": 65,
+    "confidence": 70,
+    "lat": 39.0,
+    "lon": -100.0
+  },
+  {
+    "predicted_price": 455449,
+    "investment_score": 65,
+    "confidence": 70,
+    "latitude": 34.0,
+    "longitude": -118.0
+  },
+  {
+    "predicted_price": 464002,
+    "investment_score": 65,
+    "confidence": 70,
+    "latitude": 38.0,
+    "longitude": -121.0
+  },
+  {
+    "predicted_price": 464002,
+    "investment_score": 65,
+    "confidence": 70,
+    "latitude": 38.0,
+    "longitude": -121.0
+  },
+  {
+    "predicted_price": 468416,
+    "investment_score": 65,
+    "confidence": 100,
+    "latitude": 35.0,
+    "longitude": -122.0
+  },
+  {
+    "predicted_price": 472811,
+    "investment_score": 65,
+    "confidence": 100,
+    "latitude": 33.0,
+    "longitude": -122.0
+  },
+  {
+    "predicted_price": 465084,
+    "investment_score": 65,
+    "confidence": 100,
+    "latitude": 38.0,
+    "longitude": -122.0
+  },
+  {
+    "predicted_price": 177525,
+    "investment_score": 80,
+    "confidence": 100,
+    "latitude": 38.0,
+    "longitude": -122.0
+  },
+  {
+    "predicted_price": 463272,
+    "investment_score": 65,
+    "confidence": 70,
+    "latitude": 37.0,
+    "longitude": -118.0
+  },
+  {
+    "predicted_price": 233070,
+    "investment_score": 65,
+    "confidence": 70,
+    "latitude": 37.0,
+    "longitude": -118.0
+  },
+  {
+    "predicted_price": 201941,
+    "investment_score": 80,
+    "confidence": 70,
+    "latitude": 35.0,
+    "longitude": -121.0
+  },
+  {
+    "predicted_price": 202006,
+    "investment_score": 80,
+    "confidence": 70,
+    "latitude": 35.0,
+    "longitude": -121.0
+  },
+  {
+    "predicted_price": 128881,
+    "investment_score": 80,
+    "confidence": 70,
+    "latitude": 38.0,
+    "longitude": -117.0
+  },
+  {
+    "predicted_price": 149735,
+    "investment_score": 90,
+    "confidence": 70,
+    "latitude": 38.0,
+    "longitude": -117.0
+  },
+  {
+    "predicted_price": 149735,
+    "investment_score": 90,
+    "confidence": 70,
+    "latitude": 38.0,
+    "longitude": -117.0
+  },
+  {
+    "predicted_price": 149450,
+    "investment_score": 90,
+    "confidence": 70,
+    "latitude": 38.0,
+    "longitude": -117.0
+  },
+  {
+    "predicted_price": 239441,
+    "investment_score": 75,
+    "confidence": 100,
+    "latitude": 38.0,
+    "longitude": -117.0
+  },
+  {
+    "predicted_price": 241945,
+    "investment_score": 75,
+    "confidence": 100,
+    "latitude": 38.0,
+    "longitude": -117.0
+  },
+  {
+    "predicted_price": 473076,
+    "investment_score": 65,
+    "confidence": 100,
+    "latitude": 34.0,
+    "longitude": -118.0
+  },
+  {
+    "predicted_price": 473062,
+    "investment_score": 65,
+    "confidence": 100,
+    "latitude": 34.0,
+    "longitude": -118.0
+  },
+  {
+    "predicted_price": 467154,
+    "investment_score": 75,
+    "confidence": 100,
+    "latitude": 34.0,
+    "longitude": -118.0
+  },
+  {
+    "predicted_price": 389133,
+    "investment_score": 40,
+    "confidence": 70,
+    "latitude": 34.0,
+    "longitude": -118.0
+  },
+  {
+    "predicted_price": 163320,
+    "investment_score": 60,
+    "confidence": 70,
+    "latitude": 34.0,
+    "longitude": -118.0
+  },
+  {
+    "predicted_price": 158282,
+    "investment_score": 60,
+    "confidence": 70,
+    "latitude": 34.0,
+    "longitude": -118.0
+  },
+  {
+    "predicted_price": 464623,
+    "investment_score": 40,
+    "confidence": 70,
+    "latitude": 34.0,
+    "longitude": -118.0
+  },
+  {
+    "predicted_price": 468332,
+    "investment_score": 50,
+    "confidence": 100,
+    "latitude": 34.0,
+    "longitude": -118.0
+  },
+  {
+    "predicted_price": 489482,
+    "investment_score": 50,
+    "confidence": 100,
+    "latitude": 34.0,
+    "longitude": -118.0
+  },
+  {
+    "predicted_price": 484754,
+    "investment_score": 50,
+    "confidence": 100,
+    "latitude": 34.0,
+    "longitude": -118.0
+  },
+  {
+    "predicted_price": 471332,
+    "investment_score": 60,
+    "confidence": 100,
+    "latitude": 34.0,
+    "longitude": -118.0
+  },
+  {
+    "predicted_price": 484040,
+    "investment_score": 50,
+    "confidence": 70,
+    "latitude": 34.0,
+    "longitude": -118.0
+  }
+]

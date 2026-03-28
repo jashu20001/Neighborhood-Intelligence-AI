@@ -1,0 +1,73 @@
+[
+  {
+    "query": "price analysis",
+    "feedback": "yes",
+    "price": 185931
+  },
+  {
+    "query": "price analysis",
+    "feedback": "no",
+    "price": 276559
+  },
+  {
+    "type": "custom_property_analysis",
+    "predicted_price": 244811,
+    "feedback": "no",
+    "median_income": 100000.0,
+    "latitude": 124.0,
+    "longitude": 123.0
+  },
+  {
+    "type": "custom_property_analysis",
+    "predicted_price": 419216,
+    "feedback": "yes",
+    "median_income": 8.0,
+    "latitude": 34.0,
+    "longitude": -118.0
+  },
+  {
+    "price": 383134,
+    "judgment": "This property appears overpriced compared to the average market.",
+    "feedback": "yes"
+  },
+  {
+    "price": 387652,
+    "score": 65,
+    "feedback": "yes"
+  },
+  {
+    "price": 398045,
+    "score": 65,
+    "feedback": "no"
+  },
+  {
+    "price": 398324,
+    "score": 65,
+    "confidence": 70,
+    "feedback": "yes"
+  },
+  {
+    "price": 389133,
+    "score": 65,
+    "confidence": 70,
+    "feedback": "yes"
+  },
+  {
+    "predicted_price": 455449,
+    "investment_score": 65,
+    "confidence": 70,
+    "feedback": "yes"
+  },
+  {
+    "predicted_price": 177525,
+    "investment_score": 80,
+    "confidence": 100,
+    "feedback": "yes"
+  },
+  {
+    "predicted_price": 463272,
+    "investment_score": 65,
+    "confidence": 70,
+    "feedback": "no"
+  }
+]
