@@ -1,38 +1,44 @@
 # Neighborhood Intelligence AI
 
-A California-focused real estate analysis system built with Streamlit. It combines a trained Random Forest machine learning model with structured reasoning agents and a local LLM to deliver interpretable investment guidance on neighborhood-level housing data.
+An AI-powered real estate analysis platform that combines machine learning, multi-agent reasoning, and natural language processing to evaluate California neighborhoods and deliver interpretable investment guidance.
+
+**[View Live Demo](https://neighborhood-intelligence-ai-zlxawhn2tonbirgw4fopft.streamlit.app)**
 
 ---
 
-## Live Demo
+## What It Does
 
-> Deploy link will appear here after Streamlit Cloud deployment.
+Most real estate tools give you a number. This one gives you a decision.
+
+Enter neighborhood-level data and the system runs it through a trained ML model, three specialized AI agents, and a local language model to produce a full investment analysis with a price estimate, risk breakdown, confidence rating, and a plain-English recommendation you can actually act on.
 
 ---
 
-## Overview
+## How It Works
 
-This app takes neighborhood-level inputs based on the California Housing Dataset and returns a price estimate, investment score, confidence rating, and a multi-agent analysis covering market conditions, risk factors, and investment outlook. A built-in AI chat interface lets you ask follow-up questions about any active analysis.
+The app is built around a multi-agent architecture where each agent has a distinct role:
 
-**Model performance on held-out test data:**
+**Market Analyst Agent** evaluates income levels, space availability, and location relative to the California housing market to assess pricing strength.
 
-- RMSE: ~$50,938
-- R2 Score: 0.80
+**Risk Agent** examines population density, room composition, and relative pricing to surface crowding risks, infrastructure pressure, and overvaluation signals.
+
+**Investment Agent** synthesizes both views into a scored verdict (0 to 100) with a label of Strong, Moderate, or Cautious opportunity.
+
+**LLM Layer** takes the agent outputs and generates a final recommendation and reasoning breakdown in plain language using a local Mistral model.
 
 ---
 
 ## Features
 
-- Predicted median house value for a California neighborhood block group
-- Investment score out of 100 with a verdict label (Strong / Moderate / Cautious)
-- Confidence score based on input quality validation
-- Market analyst, risk agent, and investment agent outputs with structured reasoning
-- Strengths and risks breakdown with labeled factors
-- Interactive map showing the analyzed location
-- AI explanation of how the decision was reached (powered by Ollama/Mistral locally)
-- Follow-up chat grounded in the current analysis
+- Predicted neighborhood median house value powered by a trained Random Forest model
+- Investment score out of 100 with a labeled verdict
+- Confidence score derived from input quality validation
+- Strengths and risks breakdown with individual factor cards
+- Interactive location map for spatial context
+- AI-generated final recommendation and reasoning explanation
+- Follow-up chat grounded in the active analysis context
 - Recent analysis history panel
-- Feedback saving per session
+- Per-session feedback collection
 
 ---
 
@@ -40,12 +46,13 @@ This app takes neighborhood-level inputs based on the California Housing Dataset
 
 | Layer | Technology |
 |---|---|
-| Frontend and UI | Streamlit |
-| ML Model | scikit-learn Random Forest Regressor |
-| Data | California Housing Dataset (housing.csv) |
+| Frontend | Streamlit |
+| Machine Learning | scikit-learn Random Forest Regressor |
+| Reasoning Layer | Custom multi-agent system |
 | LLM (local) | Ollama with Mistral |
+| Data | California Housing Dataset |
 | Data processing | pandas, numpy |
-| Model persistence | joblib |
+| Model hosting | Hugging Face Hub |
 
 ---
 
@@ -58,7 +65,7 @@ real-estate-ai-analyst/
 ├── data/
 │   └── housing.csv          # California housing training data
 ├── models/
-│   └── real_estate_rf.pkl   # Trained model (excluded from repo, see note below)
+│   └── real_estate_rf.pkl   # Trained model (hosted on Hugging Face)
 ├── Untitled.ipynb            # Model training and exploration notebook
 ├── requirements.txt
 └── .gitignore
@@ -91,9 +98,9 @@ venv\Scripts\activate           # Windows
 pip install -r requirements.txt
 ```
 
-**4. Obtain the trained model**
+**4. Train the model**
 
-The model file (`models/real_estate_rf.pkl`) is not stored in this repository due to its size (138 MB). You can recreate it by running the training notebook:
+The model file is not stored in this repository. Recreate it by running the training notebook:
 
 ```bash
 jupyter notebook Untitled.ipynb
@@ -103,7 +110,7 @@ Run all cells in order. The final cell saves the model to `models/real_estate_rf
 
 **5. Pull the local LLM (optional)**
 
-LLM features (final recommendation, AI reasoning, chat) require Ollama running locally with the Mistral model. The app will still run without it, but those sections will show an error message instead.
+LLM features require Ollama running locally with the Mistral model. The app runs without it, but the recommendation and chat sections will not be available.
 
 ```bash
 ollama pull mistral
@@ -115,71 +122,15 @@ ollama pull mistral
 streamlit run app/app.py
 ```
 
-The app opens at `http://localhost:8501`.
-
----
-
-## Streamlit Cloud Deployment
-
-To make the app publicly accessible, deploy it on [Streamlit Community Cloud](https://streamlit.io/cloud) (free).
-
-**Step 1 - Push your repo to GitHub** (if not done already)
-
-```bash
-git push --force origin main
-```
-
-**Step 2 - Host the trained model externally**
-
-Because the `.pkl` model file (138 MB) is excluded from the repo, you need to host it somewhere and have the app download it on startup. The recommended option is Hugging Face Hub (free, no account tier required for public repos).
-
-- Go to [huggingface.co](https://huggingface.co) and create a free account
-- Create a new model repository
-- Upload `models/real_estate_rf.pkl` via the web interface
-- Copy the download URL (it will look like: `https://huggingface.co/YOUR_USERNAME/YOUR_REPO/resolve/main/real_estate_rf.pkl`)
-
-Then add this block near the top of `app/app.py`, just after the imports:
-
-```python
-import urllib.request
-
-MODEL_URL = "https://huggingface.co/YOUR_USERNAME/YOUR_REPO/resolve/main/real_estate_rf.pkl"
-
-if not MODEL_PATH.exists():
-    MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with st.spinner("Downloading model..."):
-        urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
-```
-
-Replace `MODEL_URL` with your actual Hugging Face file URL.
-
-**Step 3 - Deploy on Streamlit Cloud**
-
-1. Go to [share.streamlit.io](https://share.streamlit.io) and sign in with GitHub
-2. Click **New app**
-3. Select your repository: `jashu20001/Neighborhood-Intelligence-AI`
-4. Set the main file path to: `app/app.py`
-5. Click **Deploy**
-
-Streamlit Cloud will install your `requirements.txt` automatically. The first launch will download the model from Hugging Face before the app loads.
-
-**Note on LLM features in the cloud:** Ollama runs locally and is not available on Streamlit Cloud. The app handles this gracefully: the final recommendation, AI reasoning, and chat sections will show a local LLM error message instead of a response. All other features (price prediction, investment scoring, market analysis, risk breakdown, map) will work normally.
-
----
-
-## Dataset
-
-This project uses the **California Housing Dataset**, which contains block-group-level census data for California. Each row represents a neighborhood block group, not a single property. Inputs like total rooms, total bedrooms, and population are neighborhood-level aggregates.
-
-The model is trained on this data and performs most reliably for California latitude (32.54 to 41.95) and longitude (-124.35 to -114.31) ranges.
+Opens at `http://localhost:8501`.
 
 ---
 
 ## Notes
 
-- This tool is for educational and exploratory purposes only. It is not financial or investment advice.
+- Built for educational and portfolio purposes. Not financial or investment advice.
 - Predictions are based on historical California census data and may not reflect current market conditions.
-- The LLM component (Ollama/Mistral) runs locally and is not required for the core ML features to function.
+- The LLM component is optional. All core ML features work independently of it.
 
 ---
 
