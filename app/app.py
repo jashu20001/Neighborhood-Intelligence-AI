@@ -18,7 +18,7 @@ MODEL_PATH = PROJECT_ROOT / "models" / "real_estate_rf.pkl"
 # =========================================================
 # MODEL DOWNLOAD (for cloud deployment)
 # =========================================================
-MODEL_URL = "https://huggingface.co/Jaswanth737/neighborhood-intelligence-ai/resolve/main/real_estate_rf.pkl"
+MODEL_URL = "https://huggingface.co/Jaswanth737/neighborhood-intelligence-ai/resolve/main/real_estate_rf.pkl?download=true"
 
 if not MODEL_PATH.exists():
     MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
