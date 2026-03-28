@@ -1,0 +1,38 @@
+# Python virtual environment
+venv/
+.venv/
+env/
+ENV/
+
+# Trained model files (too large for GitHub — store separately)
+models/*.pkl
+models/*.joblib
+models/*.h5
+models/*.pt
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Runtime data (regenerated on each session)
+history.json
+memory.json
+
+# Environment variables / secrets
+.env
+.env.*
+*.env
+
+# Distribution / build
+dist/
+build/
+*.egg-info/
