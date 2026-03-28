@@ -1,5 +1,6 @@
 import json
 import subprocess
+import urllib.request
 from pathlib import Path
 
 import joblib
@@ -13,6 +14,16 @@ APP_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = APP_DIR.parent
 
 MODEL_PATH = PROJECT_ROOT / "models" / "real_estate_rf.pkl"
+
+# =========================================================
+# MODEL DOWNLOAD (for cloud deployment)
+# =========================================================
+MODEL_URL = "https://huggingface.co/Jaswanth737/neighborhood-intelligence-ai/resolve/main/real_estate_rf.pkl"
+
+if not MODEL_PATH.exists():
+    MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with st.spinner("Downloading model... this may take a minute."):
+        urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
 DATA_PATH = PROJECT_ROOT / "data" / "housing.csv"
 HISTORY_PATH = PROJECT_ROOT / "history.json"
 MEMORY_PATH = PROJECT_ROOT / "memory.json"
